@@ -1,0 +1,19 @@
+{
+  "name": "dota2teams",
+  "version": "1.0.0",
+  "description": "Dota2 teams created with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/migelleluigi/dota2teams.git"
+  },
+  "author": "Migelle Luigi Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/migelleluigi/dota2teams/issues"
+  },
+  "homepage": "https://github.com/migelleluigi/dota2teams#readme"
+}
