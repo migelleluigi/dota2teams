@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/migelleluigi/dota2teams/issues"
   },
-  "homepage": "https://github.com/migelleluigi/dota2teams#readme"
+  "homepage": "https://github.com/migelleluigi/dota2teams#readme",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.2"
+  }
 }
