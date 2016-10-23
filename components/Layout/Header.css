@@ -17,14 +17,21 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 1024px) {
+.header {
+	box-sizing: border-box;
+	padding: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 2;
+}
 
-  .header {
-    display: flex;
-  }
-
-  .row {
-    padding: 0 16px;
-  }
-
+.logo {
+	background: url(./images/logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 350px;
+	display: inline-block;
 }
