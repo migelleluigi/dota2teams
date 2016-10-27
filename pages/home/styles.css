@@ -1,17 +1,61 @@
-/**
- * React Static Boilerplate
- * https://github.com/koistya/react-static-boilerplate
- *
- * Copyright © 2015-2016 Konstantin Tarkus (@koistya)
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-@media screen and (max-width: 1024px) {
-
-  .content {
-    padding: 0 16px;
-  }
-
+.content {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
+
+.cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.cards__container {
+    position: absolute;
+    width: 304px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    margin-top: -240px;
+    margin-left: -152px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+.card {
+
+  background: url(./images/card.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  display: block;
+  width: 304px;
+  height: 450px;
+}
+.card:nth-child(1) {
+  transform: translateX(-670px) translateZ(250px) scale(.8);
+};
+
+.card:nth-child(2) {
+  transform: translateX(-335px) translateZ(250px) scale(.8);
+};
+
+.card:nth-child(3) {
+  transform: rotateY(0) translateX(0) translateZ(250px);
+};
+
+.card:nth-child(4) {
+  transform: translateX(335px) translateZ(250px) scale(.8);
+};
+
+.card:nth-child(5) {
+  transform: translateX(670px) translateZ(250px) scale(.8);
+};

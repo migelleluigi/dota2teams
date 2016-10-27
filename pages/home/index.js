@@ -14,28 +14,58 @@ import s from './styles.css';
 import { title, html } from './index.md';
 
 class HomePage extends React.Component {
+  constructor() {
+    super();
 
-  static propTypes = {
-    articles: PropTypes.array.isRequired,
-  };
-
-  componentDidMount() {
-    document.title = title;
+    this.state = {
+      scale: 1
+    }
   }
 
+  handleResize(e) {
+    var w = window,
+    d = document,
+    documentElement = d.documentElement,
+    body = d.getElementsByTagName('body')[0],
+    width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+    height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+
+    this.setState({width: width, height: height});
+    var scale = height/950;
+    scale = scale > 1 ? 1 : scale;
+    this.setState({scale});
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize.bind(this));
+    document.title = title;
+
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+
+
   render() {
+    var css = {transform: `scale(${this.state.scale})`};
+      css = {transform: `matrix(${this.state.scale}, 0, 0, ${this.state.scale}, 0, 0)`};
+    console.log(css);
     return (
-      <Layout className={s.content}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <h4>Articles</h4>
-        <ul>
-          {this.props.articles.map((article, i) =>
-            <li key={i}><a href={article.url}>{article.title}</a> by {article.author}</li>
-          )}
-        </ul>
-        <p>
-          <br /><br />
-        </p>
+      <Layout>
+        <div className={s.content}>
+            <div className={s.cards}>
+              <div className={`clearfix ${s.cards__container}`} style={css}>
+                <div className={`${s.card} ${s.card_fade_left}`}></div>
+                <div className={s.card}></div>
+                <div className={`${s.card} ${s.card_active}`}></div>
+                <div className={s.card}></div>
+                <div className={`${s.card} ${s.card_fade_right}`}></div>
+              </div>
+            </div>
+        </div>
       </Layout>
     );
   }
