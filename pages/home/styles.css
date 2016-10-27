@@ -31,15 +31,58 @@
 }
 
 .card {
-
-  background: url(./images/card.png);
-  background-repeat: no-repeat;
-  background-size: contain;
   position: absolute;
   display: block;
   width: 304px;
   height: 450px;
+/*  transform-origin: right center;
+  transform-style: preserve-3d;
+  transition: transform 1s;*/
 }
+
+.cardflip {
+  position: absolute;
+  display: block;
+  width: 304px;
+  height: 450px;
+  /*transform-origin: right center;*/
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.cardflip figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+
+.front {
+  background: url(./images/card.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back {
+  background: url(./images/card.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateY( 180deg );
+}
+.members {
+  background: #000;
+  width: calc(100% - 32px);
+  height: calc(100% - 41px);
+  margin: 16px;
+}
+
+.hover {
+  transform:  rotateY( -180deg );
+}
+
 .card:nth-child(1) {
   transform: translateX(-670px) translateZ(250px) scale(.8);
 };
@@ -49,7 +92,7 @@
 };
 
 .card:nth-child(3) {
-  transform: rotateY(0) translateX(0) translateZ(250px);
+  transform: translateX(0) translateZ(250px);
 };
 
 .card:nth-child(4) {
@@ -59,3 +102,4 @@
 .card:nth-child(5) {
   transform: translateX(670px) translateZ(250px) scale(.8);
 };
+
