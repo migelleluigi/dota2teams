@@ -1,16 +1,7 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import s from './styles.css';
+import Card from './card';
 import { title, html } from './index.md';
 
 class HomePage extends React.Component {
@@ -41,6 +32,21 @@ class HomePage extends React.Component {
     window.addEventListener('resize', this.handleResize.bind(this));
     document.title = title;
 
+    fetch('http://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key=40A813A042277C3DA67DC3ACFCB40103&format=json',{
+      credentials: 'same-origin',
+      mode: 'no-cors',
+      method: 'get'
+    }).then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      console.log('parsed json', json)
+    }).catch(function(ex) {
+      console.log('parsing failed', ex)
+    })
+  }
+
+  onMouseEnter() {
+
   }
 
   componentWillUnmount() {
@@ -50,19 +56,19 @@ class HomePage extends React.Component {
 
 
   render() {
-    var css = {transform: `scale(${this.state.scale})`};
-      css = {transform: `matrix(${this.state.scale}, 0, 0, ${this.state.scale}, 0, 0)`};
-    console.log(css);
+    let css = {transform: `scale(${this.state.scale})`};
     return (
       <Layout>
         <div className={s.content}>
             <div className={s.cards}>
               <div className={`clearfix ${s.cards__container}`} style={css}>
-                <div className={`${s.card} ${s.card_fade_left}`}></div>
-                <div className={s.card}></div>
-                <div className={`${s.card} ${s.card_active}`}></div>
-                <div className={s.card}></div>
-                <div className={`${s.card} ${s.card_fade_right}`}></div>
+                
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+
               </div>
             </div>
         </div>
